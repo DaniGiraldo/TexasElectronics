@@ -74,6 +74,11 @@ tr:nth-child(even) {
     height: 300px;
 }
 
+.imgs_appserv{
+    width: 100%;
+    height: 100%;
+}
+
 .situation{
     display: inline-flex;
     border: black;
