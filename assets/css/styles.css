@@ -35,8 +35,65 @@ code{
     color: #191919!important;
 }
 
-nav{
+button{
+    background-color: rgb(66, 131, 131);
+    color: white;
+    border-radius: 2px;
+    border: none;
+}
+
+.menu{
     cursor: pointer;
+    display: flex;
+    background-color: #f8f9fa;
+}
+
+nav > div{
+    display: flex;
+}
+
+.ul_item{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-self: center;
+}
+
+.item{
+    padding: 10px;
+    display: block;
+}
+
+a{
+    font-size: medium;
+    font-weight: bold;
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.div_subitems{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-left: -10px;
+    margin-top: 10px;
+}
+
+.div_subitems a:hover {
+    background-color: #5d6d7e;
+    color: white !important;
+}
+
+.dropdown:hover .div_subitems{
+    display: block;
+}
+
+.item:hover{
+    background-color: rgb(66, 131, 131);
+    color: rgb(255, 255, 255);
 }
 
 tr:nth-child(odd) {
