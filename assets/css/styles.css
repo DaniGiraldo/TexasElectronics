@@ -69,6 +69,7 @@ a{
     font-weight: bold;
     color: black !important;
     text-decoration: none !important;
+    cursor: pointer;
 }
 
 .div_subitems{

@@ -13,20 +13,20 @@ function main (){
 		$('.container').load('pages/html_css_description.html');
 	});
 	
-	$('.proposal').on('click', function(){
+	$('#proposal').on('click', function(){
 		$('.container').load('pages/project_proposal.html');
 	});
 
-	$('#cover_page').on('click', function(){
-		$('.container').load('pages/cover_page.html');
+	$('#proposal_intro').on('click', function(){
+		$('.container').load('pages/project_proposal.html');
 	});
 
 	$('#introduction').on('click', function(){
 		$('.container').load('pages/introduction.html');
 	});
 
-	$('#conclutions').on('click', function(){
-		$('.container').load('pages/conclutions.html');
+	$('#conclusions').on('click', function(){
+		$('.container').load('pages/conclusions.html');
 	});
 
 	$('#bibliography').on('click', function(){
