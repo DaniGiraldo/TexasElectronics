@@ -1,0 +1,72 @@
+<script type="text/javascript">
+	resistor_events();
+</script>
+<div class="title_form" style="margin-left: 5% !important;">
+    <h4>Calculadora de resistencias eléctricas</h4>
+</div>
+<br>
+<div class="d-flex justify-content-center bd-highlight">
+    <div class="div-form">
+        <div class="form-group row bands">
+            <label class="col-form-label col-form-label-sm">Primera banda</label>
+            <div class="col-sm-10 input-medium" style="margin-left: 1%;">
+                <select id="first_band" class="form-control">
+                    <option value="#000000">Negro</option>
+                    <option value="#804000">Café</option>
+                    <option value="#cb3234">Rojo</option>
+                    <option value="#ff8000">Naranja</option>
+                    <option value="#f8f32b">Amarillo</option>
+                    <option value="#008f39">Verde</option>
+                    <option value="#0000ff">Azul</option>
+                    <option value="#4a192c">Violeta</option>
+                    <option value="#9c9c9c">Gris</option>
+                    <option value="#FFFFFF">Blanco</option>
+                </select>
+                <input type="color" id="i_first_band" value="#000000" disabled>
+            </div>
+        </div>
+        <div class="form-group row bands">
+            <label class="col-form-label col-form-label-sm">Segunda banda</label>
+            <div class="col-sm-10 input-medium">
+                <select id="second_band" class="form-control">
+                    <option value="#000000" selected>Negro</option>
+                    <option value="#804000">Café</option>
+                    <option value="#cb3234">Rojo</option>
+                    <option value="#ff8000">Naranja</option>
+                    <option value="#f8f32b">Amarillo</option>
+                    <option value="#008f39">Verde</option>
+                    <option value="#0000ff">Azul</option>
+                    <option value="#4a192c">Violeta</option>
+                    <option value="#9c9c9c">Gris</option>
+                    <option value="#FFFFFF">Blanco</option>
+                </select>
+                <input type="color" id="i_second_band" value="#000000" disabled>
+            </div>
+        </div>
+        <div class="form-group row bands">
+            <label class="col-form-label col-form-label-sm">Tercera banda</label>
+            <div class="col-sm-10 input-medium">
+                <select id="third_band" class="form-control">
+                    <option value="#000000" selected>Negro</option>
+                    <option value="#804000">Café</option>
+                    <option value="#cb3234">Rojo</option>
+                    <option value="#ff8000">Naranja</option>
+                    <option value="#f8f32b">Amarillo</option>
+                    <option value="#008f39">Verde</option>
+                    <option value="#0000ff">Azul</option>
+                    <option value="#4a192c">Violeta</option>
+                    <option value="#9c9c9c">Gris</option>
+                    <option value="#FFFFFF">Blanco</option>
+                </select>
+                <input type="color" id="i_third_band" value="#000000" disabled>
+            </div>
+        </div> 
+        <div class="button-form">
+            <button type="button" id="calculate_resistor" class="btn btn-dark">Calcular</button>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-form-label-sm">Valor de la resistencia</label>
+            <label class="col-form-label col-form-label-sm sale"></label>
+        </div>
+    </div>
+</div>

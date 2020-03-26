@@ -1,0 +1,146 @@
+<script type="text/javascript">
+    inventory_events();
+</script>
+<div class="d-flex justify-content-start">
+    <aside class="left_menu">
+        <nav>
+            <ul>
+                <li id="insert">
+                    <img src="/assets/images/icons/insert.png" class="icon"><a> Ingresar</a>
+                </li>
+                <li id="search">
+                    <a><img src="/assets/images/icons/search.png" class="icon"> Buscar</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <aside class="inventory_forms">
+        <div class="title_form" style="margin-left: 5% !important;">
+            <h4>Inventario</h4>
+        </div>
+        <div style="margin-left: 15% !important;">
+            <p>Bienvenido a la gestión de inventario de la empresa Texas Electronics.</p>
+        </div>
+        <div id="insert_form" class="form dn">
+            <div class="div_form">
+                <h5>Ingresar producto</h5>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Código</label>
+                    <div class="col-sm-10" style="margin-left: 10px;">
+                        <input type="text" id="code" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Nombre</label>
+                    <div class="col-sm-10" style="margin-left: 5px;">
+                        <input type="text" id="name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Marca</label>
+                    <div class="col-sm-10" style="margin-left: 16px;">
+                        <input type="text" id="brand" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row"> 
+                    <label class="col-form-label col-form-label-sm">Precio</label>
+                    <div class="col-sm-10" style="margin-left: 16px;">
+                        <input type="number" id="price" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Cantidad</label>
+                    <div class="col-sm-10">
+                        <input type="number" id="quantity" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <div class="button-form">
+                    <button type="button" id="calculate" class="btn btn-dark">Guardar</button>
+                </div>
+            </div>
+        </div>
+        <div id="update_form" class="form dn">
+            <div class="div_form">
+                <h5>Actualizar producto</h5>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Código</label>
+                    <div class="col-sm-10" style="margin-left: 10px;">
+                        <input type="text" id="code" class="form-control" value="1" disabled>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Nombre</label>
+                    <div class="col-sm-10" style="margin-left: 5px;">
+                        <input type="text" id="name" class="form-control" value="Placa Arduino">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Marca</label>
+                    <div class="col-sm-10" style="margin-left: 16px;">
+                        <input type="text" id="brand" class="form-control" value="Ejemplo">
+                    </div>
+                </div>
+                <div class="form-group row"> 
+                    <label class="col-form-label col-form-label-sm">Precio</label>
+                    <div class="col-sm-10" style="margin-left: 16px;">
+                        <input type="number" id="price" class="form-control" value="200.000">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Cantidad</label>
+                    <div class="col-sm-10">
+                        <input type="number" id="quantity" class="form-control" value="100">
+                    </div>
+                </div>
+                <br>
+                <div class="button-form">
+                    <button type="button" id="calculate" class="btn btn-dark">Actualizar</button>
+                </div>
+            </div>
+        </div>
+        <div id="search_form" class="form dn">
+            <div class="div_form">
+                <h5>Buscar producto</h5>
+                <div class="form-group row">
+                    <label class="col-form-label col-form-label-sm">Código</label>
+                    <div class="col-sm-10" style="margin-left: 10px;">
+                        <input type="text" id="code" class="form-control" value="1">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <div class="button-form">
+                        <button type="button" id="calculate" class="btn btn-dark">Buscar</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Actualizar</th>
+                            <th scope="col">Eliminar</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Placa Arduino</td>
+                            <td>Ejemplo</td>
+                            <td>200.000</td>
+                            <td>100</td>
+                            <td><img id="update" src="/assets/images/icons/update.png" class="icon"></td>
+                            <td><img id="delete" src="/assets/images/icons/delete.png" class="icon"></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
