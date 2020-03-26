@@ -86,7 +86,6 @@ function inventory_events(){
 	console.log('events loaded');
 
 	$('#search').on('click', function(){
-		console.log('entré');
 		$('#search_form').removeClass('dn');
 		$('#insert_form').addClass('dn');
 		$('#update_form').addClass('dn');
