@@ -11,62 +11,65 @@
             <label class="col-form-label col-form-label-sm">Primera banda</label>
             <div class="col-sm-10 input-medium" style="margin-left: 1%;">
                 <select id="first_band" class="form-control">
-                    <option value="#000000">Negro</option>
-                    <option value="#804000">Café</option>
-                    <option value="#cb3234">Rojo</option>
-                    <option value="#ff8000">Naranja</option>
-                    <option value="#f8f32b">Amarillo</option>
-                    <option value="#008f39">Verde</option>
-                    <option value="#0000ff">Azul</option>
-                    <option value="#4a192c">Violeta</option>
-                    <option value="#9c9c9c">Gris</option>
-                    <option value="#FFFFFF">Blanco</option>
+                    <option value="">Seleccione</option>
+                    <option value="f0" color="000000" calc="0">Negro</option>
+                    <option value="f1" color="804000" calc="1">Café</option>
+                    <option value="f2" color="cb3234" calc="2">Rojo</option>
+                    <option value="f3" color="ff8000" calc="3">Naranja</option>
+                    <option value="f4" color="f8f32b" calc="4">Amarillo</option>
+                    <option value="f5" color="008f39" calc="5">Verde</option>
+                    <option value="f6" color="0000ff" calc="6">Azul</option>
+                    <option value="f7" color="4a192c" calc="7">Violeta</option>
+                    <option value="f8" color="9c9c9c" calc="8">Gris</option>
+                    <option value="f9" color="FFFFFF" calc="9">Blanco</option>
                 </select>
-                <input type="color" id="i_first_band" value="#000000" disabled>
+                <input type="color" id="i_first_band" value="" disabled>
             </div>
         </div>
         <div class="form-group row bands">
             <label class="col-form-label col-form-label-sm">Segunda banda</label>
             <div class="col-sm-10 input-medium">
                 <select id="second_band" class="form-control">
-                    <option value="#000000" selected>Negro</option>
-                    <option value="#804000">Café</option>
-                    <option value="#cb3234">Rojo</option>
-                    <option value="#ff8000">Naranja</option>
-                    <option value="#f8f32b">Amarillo</option>
-                    <option value="#008f39">Verde</option>
-                    <option value="#0000ff">Azul</option>
-                    <option value="#4a192c">Violeta</option>
-                    <option value="#9c9c9c">Gris</option>
-                    <option value="#FFFFFF">Blanco</option>
+                    <option value="">Seleccione</option>
+                    <option value="s0" color="000000" calc="0">Negro</option>
+                    <option value="s1" color="804000" calc="1">Café</option>
+                    <option value="s2" color="cb3234" calc="2">Rojo</option>
+                    <option value="s3" color="ff8000" calc="3">Naranja</option>
+                    <option value="s4" color="f8f32b" calc="4">Amarillo</option>
+                    <option value="s5" color="008f39" calc="5">Verde</option>
+                    <option value="s6" color="0000ff" calc="6">Azul</option>
+                    <option value="s7" color="4a192c" calc="7">Violeta</option>
+                    <option value="s8" color="9c9c9c" calc="8">Gris</option>
+                    <option value="s9" color="FFFFFF" calc="9">Blanco</option>
                 </select>
-                <input type="color" id="i_second_band" value="#000000" disabled>
+                <input type="color" id="i_second_band" value="" disabled>
             </div>
         </div>
         <div class="form-group row bands">
             <label class="col-form-label col-form-label-sm">Tercera banda</label>
             <div class="col-sm-10 input-medium">
                 <select id="third_band" class="form-control">
-                    <option value="#000000" selected>Negro</option>
-                    <option value="#804000">Café</option>
-                    <option value="#cb3234">Rojo</option>
-                    <option value="#ff8000">Naranja</option>
-                    <option value="#f8f32b">Amarillo</option>
-                    <option value="#008f39">Verde</option>
-                    <option value="#0000ff">Azul</option>
-                    <option value="#4a192c">Violeta</option>
-                    <option value="#9c9c9c">Gris</option>
-                    <option value="#FFFFFF">Blanco</option>
+                    <option value="">Seleccione</option>
+                    <option value="t1" color="000000" calc="1">Negro</option>
+                    <option value="t2" color="804000" calc="10">Café</option>
+                    <option value="t3" color="cb3234" calc="100">Rojo</option>
+                    <option value="t4" color="ff8000" calc="1000">Naranja</option>
+                    <option value="t5" color="f8f32b" calc="10000">Amarillo</option>
+                    <option value="t6" color="008f39" calc="100000">Verde</option>
+                    <option value="t7" color="0000ff" calc="1000000">Azul</option>
+                    <option value="t8" color="4a192c" calc="10000000">Violeta</option>
+                    <option value="t9" color="9c9c9c" calc="100000000">Gris</option>
+                    <option value="t10" color="FFFFFF" calc="1000000000">Blanco</option>
                 </select>
-                <input type="color" id="i_third_band" value="#000000" disabled>
+                <input type="color" id="i_third_band" value="" disabled>
             </div>
         </div> 
         <div class="button-form">
-            <button type="button" id="calculate_resistor" class="btn btn-dark">Calcular</button>
+            <button type="button" id="calculate_resistor" class="btn btn-dark" onclick="calculate_resistor();">Calcular</button>
         </div>
         <div class="form-group row">
             <label class="col-form-label col-form-label-sm">Valor de la resistencia</label>
-            <label class="col-form-label col-form-label-sm sale"></label>
+            <label class="col-form-label col-form-label-sm calculate"></label>
         </div>
     </div>
 </div>

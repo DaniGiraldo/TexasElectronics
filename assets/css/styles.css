@@ -150,8 +150,6 @@ tr:nth-child(even) {
 }
 
 .div_form{
-    margin-left: 10%;
-    margin-right: 10%;
     width: 450px;
 }
 
@@ -170,34 +168,12 @@ tr:nth-child(even) {
     max-width: 99% !important;
 }
 
-.left_menu{
-    width: 15%;
-    margin-left: -15px;
-    padding: 10px 0 0 0;
-    border-right: 1px solid rgb(19, 18, 18);
-    /* background-color: #343a40; */
-    color: white;
-}
-
-.left_menu > nav > ul{
-    list-style: none !important;
-}
-
-.left_menu > nav > ul > li{
-    padding-left: 3%;
-}
-
 .title_form{
-    /* background-color: #343a40; */
     box-shadow: 0 4px 2px -2px #343a40;
 }
 
-.inventory_forms{
-    width: 80%;
-}
-
-.form{
-    padding-left: 10%;
+.subtitle_form{
+    margin-left: 10%;
 }
 
 .dn{

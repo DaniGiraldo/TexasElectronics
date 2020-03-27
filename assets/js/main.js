@@ -1,4 +1,4 @@
-$('.container').load('pages/home.html');
+$('.container').load('pages/utilities/prices.html');
 
 function main (){
 	/** */
@@ -50,8 +50,12 @@ function menu_options(){
 		$('.container').load('pages/utilities/resistors.html');
 	});
 
-	$('#inventory').on('click', function(){
-		$('.container').load('pages/utilities/inventory.html');
+	$('#insert_inventory').on('click', function(){
+		$('.container').load('pages/utilities/inventory/insert_inventory.html');
+	});
+
+	$('#search_inventory').on('click', function(){
+		$('.container').load('pages/utilities/inventory/search_inventory.html');
 	});
 
 	$('#sales').on('click', function(){
@@ -66,34 +70,72 @@ function menu_options(){
 function resistor_events(){
 	
 	$('#first_band').on('change', function(){
-		var color = $(this).val();
-		$('#i_first_band').attr('value', color);
+		var fb = $(this).val();
+		var color = $('option[value='+fb+']').attr('color');
+		$('#i_first_band').attr('value', '#' + color);
 	});
 
 	$('#second_band').on('change', function(){
-		var color = $(this).val();
-		$('#i_second_band').attr('value', color);
+		var sb = $(this).val();
+		var color = $('option[value='+sb+']').attr('color');
+		$('#i_second_band').attr('value', '#' + color);
 	});
 
 	$('#third_band').on('change', function(){
-		var color = $(this).val();
-		$('#i_third_band').attr('value', color);
+		var tb = $(this).val();
+		var color = $('option[value='+tb+']').attr('color');
+		$('#i_third_band').attr('value', '#' + color);
 	});
+
+}
+
+function calculate_prices(){
+	var value  = $('#value').val();
+	var utility  = $('#utility').val();
+	var iva  = $('#iva').val();
+
+	var percentage_i = iva/100;
+	var iva = value * percentage_i;
+
+	var percentage_u = utility/100;
+	var gain = value * percentage_u;
+
+	var sale = parseInt(value) + parseInt(gain) + parseInt(iva);
+
+	$('.sale').text(sale).css({
+		'margin-left' : '10%',
+		'font-weight' : 'bold'
+	});
+
+	$('.gain').text(gain).css({
+		'margin-left' : '10%',
+		'font-weight' : 'bold'
+	});
+}
+
+function calculate_resistor(){
+	var first_band  = $('#first_band').val();
+	var second_band = $('#second_band').val();
+	var third_band  = $('#third_band').val();
 	
+	var value1 = $('option[value='+first_band+']').attr('calc');
+	var value2 = $('option[value='+second_band+']').attr('calc');
+	var value3 = $('option[value='+third_band+']').attr('calc');
+	
+	var num = value1+value2;
+	var resistor = num * value3;
+
+	$('.calculate').text(resistor).css({
+		'margin-left' : '10%',
+		'font-weight' : 'bold'
+	});
 }
 
 function inventory_events(){
-	console.log('events loaded');
 
 	$('#search').on('click', function(){
 		$('#search_form').removeClass('dn');
 		$('#insert_form').addClass('dn');
-		$('#update_form').addClass('dn');
-	});
-
-	$('#insert').on('click', function(){
-		$('#insert_form').removeClass('dn');
-		$('#search_form').addClass('dn');
 		$('#update_form').addClass('dn');
 	});
 
