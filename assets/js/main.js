@@ -1,4 +1,4 @@
-$('.container').load('pages/utilities/prices.html');
+$('.container').load('pages/home.html');
 
 function main (){
 	/** */
