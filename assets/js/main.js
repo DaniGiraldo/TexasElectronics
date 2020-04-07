@@ -5,6 +5,30 @@ function main (){
 	menu_options();
 }
 
+function calculate_prices(){
+	var value  = $('#value').val();
+	var utility  = $('#utility').val();
+	var iva  = $('#iva').val();
+
+	var percentage_i = iva/100;
+	var iva = value * percentage_i;
+
+	var percentage_u = utility/100;
+	var gain = value * percentage_u;
+
+	var sale = parseInt(value) + parseInt(gain) + parseInt(iva);
+
+	$('.sale').text(sale).css({
+		'margin-left' : '10%',
+		'font-weight' : 'bold'
+	});
+
+	$('.gain').text(gain).css({
+		'margin-left' : '10%',
+		'font-weight' : 'bold'
+	});
+}
+
 function menu_options(){
 	/** Home */
 	$('#home').on('click', function(){
@@ -85,31 +109,6 @@ function resistor_events(){
 		var tb = $(this).val();
 		var color = $('option[value='+tb+']').attr('color');
 		$('#i_third_band').attr('value', '#' + color);
-	});
-
-}
-
-function calculate_prices(){
-	var value  = $('#value').val();
-	var utility  = $('#utility').val();
-	var iva  = $('#iva').val();
-
-	var percentage_i = iva/100;
-	var iva = value * percentage_i;
-
-	var percentage_u = utility/100;
-	var gain = value * percentage_u;
-
-	var sale = parseInt(value) + parseInt(gain) + parseInt(iva);
-
-	$('.sale').text(sale).css({
-		'margin-left' : '10%',
-		'font-weight' : 'bold'
-	});
-
-	$('.gain').text(gain).css({
-		'margin-left' : '10%',
-		'font-weight' : 'bold'
 	});
 }
 
