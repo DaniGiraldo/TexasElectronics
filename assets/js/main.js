@@ -86,8 +86,15 @@ function menu_options(){
 		$('.container').load('pages/utilities/sales.html');
 	});
 
-	$('#admin').on('click', function(){
-		$('.container').load('pages/utilities/admin.html');
+	$('#database').on('click', function(){
+		console.log('ok');
+		$('.container').load('pages/admin/admin.php');
+		// admin('database');
+	});
+
+	$('#table').on('click', function(){
+		$('.container').load('pages/admin/admin.html');
+		admin('table');
 	});
 }
 
@@ -147,6 +154,12 @@ function inventory_events(){
 	$('#delete').on('click', function(){
 		confirm('Seguro desea eliminar?');
 	});
+}
+
+function admin(type = ''){
+	console.log(type);
+	$('input[name=script]').attr('value', type);
+	$('#exec_script').submit();
 }
 
 console.log('main.js loaded');
