@@ -89,7 +89,7 @@ function menu_options(){
 	$('#database').on('click', function(){
 		console.log('ok');
 		$('.container').load('pages/admin/admin.php');
-		// admin('database');
+		$('#exec').attr('value', 'database');
 	});
 
 	$('#table').on('click', function(){
