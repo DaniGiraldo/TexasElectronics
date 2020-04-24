@@ -25,6 +25,6 @@ function exec_script($type = ''){
 <script>
     function exec(){
         var type = $('#exec').attr('value');
-        <?= exec_script('database'); ?>
+        alert('<?= exec_script('database'); ?>');
     }
 </script>
