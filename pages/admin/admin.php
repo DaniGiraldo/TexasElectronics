@@ -13,7 +13,12 @@ function exec_script($type = ''){
     $command = "mysql -uroot -p12345678 -h localhost --force < scripts/". $script;
 
     $result = shell_exec($command);
-    print_r($result);
+    
+    if(isset($result)){
+        $result = 'ejecutado';
+    }else{
+        $result = 'no ejecutado';
+    }
 
     return $result;
 }
@@ -25,6 +30,6 @@ function exec_script($type = ''){
 <script>
     function exec(){
         var type = $('#exec').attr('value');
-        alert('<?= exec_script('database'); ?>');
+        alert("<?= exec_script('database'); ?>");
     }
 </script>
