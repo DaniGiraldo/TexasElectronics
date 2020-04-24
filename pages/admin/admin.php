@@ -10,8 +10,8 @@
 
 $command = "mysql -uroot -p12345678 -h localhost -e 'CREATE DATABASE IF NOT EXISTS `bdunad29`'";
 
-echo shell_exec($command);
-// print_r($result);
+$result = shell_exec($command);
+print_r($result);
 
 // if($result == true){
 //     echo 'Script ejecutado correctamente';
