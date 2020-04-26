@@ -9,43 +9,44 @@
 </div>
 <div class="d-flex justify-content-center bd-highlight">
     <div id="insert_form" class="p-2 bd-highlight">
-        <div class="div_form">
+        <form class="div_form" id="insert_form" method="post">
+            <input type="hidden" id="function" name="function" value="insert">
             <h5>Ingresar producto</h5>
             <div class="form-group row">
                 <label class="col-form-label col-form-label-sm">Código</label>
                 <div class="col-sm-10" style="margin-left: 10px;">
-                    <input type="text" id="code" class="form-control">
+                    <input type="text" id="code" name="code" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-form-label-sm">Nombre</label>
                 <div class="col-sm-10" style="margin-left: 5px;">
-                    <input type="text" id="name" class="form-control">
+                    <input type="text" id="name" name="name" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-form-label-sm">Marca</label>
                 <div class="col-sm-10" style="margin-left: 16px;">
-                    <input type="text" id="brand" class="form-control">
+                    <input type="text" id="brand" name="brand" class="form-control">
                 </div>
             </div>
             <div class="form-group row"> 
                 <label class="col-form-label col-form-label-sm">Precio</label>
                 <div class="col-sm-10" style="margin-left: 16px;">
-                    <input type="number" id="price" class="form-control">
+                    <input type="number" id="price" name="price" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-form-label-sm">Cantidad</label>
                 <div class="col-sm-10">
-                    <input type="number" id="quantity" class="form-control">
+                    <input type="number" id="quantity" name="quantity" class="form-control">
                 </div>
             </div>
             <br>
             <div class="button-form">
-                <button type="button" id="calculate" class="btn btn-dark">Guardar</button>
+                <button type="button" id="insert" class="btn btn-dark" onclick="insert_products();">Guardar</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

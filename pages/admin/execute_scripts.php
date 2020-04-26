@@ -1,30 +1,26 @@
 <?php
-// exec_script($_REQUEST);
+require_once '../../db_connection/db_connection.php';
 
-// function exec_script($type){
-    $script = 'create_database.sql';
-    // if(isset($_REQUEST) && $_REQUEST == 'database'){
-    //     var_dump($_REQUEST);
+if($_REQUEST['type'] == 'database'){
+    $script = 'CREATE DATABASE IF NOT EXISTS `bdunad29`;';
+}else if($_REQUEST['type'] == 'table'){
+    $script = 'CREATE TABLE IF NOT EXISTS `bdunad29`.`tabla29` (
+        `codigo` INT UNSIGNED NOT NULL PRIMARY KEY,
+        `nombre` VARCHAR(200) NOT NULL,
+        `marca` VARCHAR(200) NOT NULL,
+        `precio` DOUBLE NOT NULL,
+        `cantidad` INT UNSIGNED NOT NULL DEFAULT 0,
+        `fecha_creacion` DATETIME
+    ) ENGINE=INNODB;
+    ADD UNIQUE INDEX `codigo_uq` (`codigo`);';
+}else{
+    $script = "El script no fue encontrado";
+}
 
-    //     $script = 'create_database.sql';
-    // }if(isset($_REQUEST) && $_REQUEST == 'table'){
-    //     $script = 'create_table.sql';
-    // }else{
-    //     $script = '';
-    //     $result = "El script no fue encontrado";
-    // }
-    
-    $command = "mysql -uroot -p12345678 -h localhost < scripts/". $script;
-    
-    $result = shell_exec($command);
-    print_r($result);
-    if(isset($result)){
-        $result = 'ejecutado';
-    }else{
-        $result = 'no ejecutado';
-    }
+$_query = new db_connection();
 
-//     return $result;
-// }
+$result = $_query->query_result($script);
+
+echo $result;
 
 ?>

@@ -75,27 +75,24 @@ function menu_options(){
 	});
 
 	$('#insert_inventory').on('click', function(){
-		$('.container').load('pages/utilities/inventory/insert_inventory.html');
+		$('.container').load('pages/utilities/inventory/views/insert_inventory.html');
 	});
 
 	$('#search_inventory').on('click', function(){
-		$('.container').load('pages/utilities/inventory/search_inventory.html');
+		$('.container').load('pages/utilities/inventory/views/search_inventory.html');
 	});
+
 
 	$('#sales').on('click', function(){
 		$('.container').load('pages/utilities/sales.html');
 	});
 
 	$('#database').on('click', function(){
-		console.log('ok');
-		$('.container').load('pages/admin/admin.php');
-		$('#exec').attr('value', 'database');
-		/* $('#exec').trigger('change'); */
+		scripts('database');
 	});
 
 	$('#table').on('click', function(){
-		$('.container').load('pages/admin/admin.html');
-		admin('table');
+		scripts('table');
 	});
 }
 
@@ -149,18 +146,152 @@ function inventory_events(){
 	$('#update').on('click', function(){
 		$('#insert_form').addClass('dn');
 		$('#search_form').addClass('dn');
-		$('#update_form').removeClass('dn');
+		// $('#update_form').removeClass('dn');
+		$('.container').load('pages/utilities/inventory/views/update_inventory.html');
+
+		var code = sessionStorage.getItem('code');
+		var name = sessionStorage.getItem('name')
+		var brand = sessionStorage.getItem('brand')
+		var price = sessionStorage.getItem('price')
+		var quantity = sessionStorage.getItem('quantity')
+		
+		$('#u_code').attr('value',code);
+		$('#u_name').attr('value',name);
+		$('#u_brand').attr('value',brand);
+		$('#u_price').attr('value',price);
+		$('#u_quantity').attr('value',quantity);
 	});
 
 	$('#delete').on('click', function(){
-		confirm('Seguro desea eliminar?');
+		var table_results = $('#table_results'); 
+		$answer = confirm('Seguro desea eliminar?');
+		if($answer == true){
+			data = {
+				'function' 	: 'delete',
+				'code' 		: $('#code').val()
+			}
+	
+			$.ajax({
+				url			: 'http://cied/pages/utilities/inventory/actions.php',
+				cache		: false,
+				data		: data,
+				type		: 'POST',
+				success		: function(html){
+					alert('Producto eliminado');
+					table_results.hide();
+				},
+				error 		: function(){
+					alert('Producto no encontrado');
+				}	
+			});
+		}
 	});
 }
 
-function admin(type = ''){
-	console.log(type);
-	$('input[name=script]').attr('value', type);
-	$('#exec_script').submit();
+function scripts(type = ''){
+	
+	$.ajax({
+		url			: 'http://cied/pages/admin/execute_scripts.php',
+		cache		: false,
+		data		: {
+			'type'	: type
+		},
+		type		: 'POST',
+		success		: function(result){
+			console.log(result);
+			alert('Script ejecutado');
+		},
+		error 		: function(){
+			alert('Script no ejecutado');
+		}	
+	});
+}
+
+function insert_products(){
+
+	data = {
+		'function' 	: $('#function').val(),
+		'code' 		: $('#code').val(),
+		'name' 		: $('#name').val(),
+		'brand' 	: $('#brand').val(),
+		'price' 	: $('#price').val(),
+		'quantity' 	: $('#quantity').val(),
+	}
+
+	$.ajax({
+		url			: 'http://cied/pages/utilities/inventory/actions.php',
+		cache		: false,
+		data		: data,
+		type		: 'POST',
+		success		: function(result){
+			alert('Producto ingresado');
+		},
+		error 		: function(){
+			alert('Producto no ingresado');
+		}	
+	});
+}
+
+function search_products(){
+	var table_results = $('#table_results'); 
+	
+	if($('#code').val() == ''){
+		alert('Es necesario enviar un código.')
+	}else{
+		data = {
+			'function' 	: $('#function').val(),
+			'code' 		: $('#code').val()
+		}
+
+		$.ajax({
+			url			: 'http://cied/pages/utilities/inventory/actions.php',
+			cache		: false,
+			data		: data,
+			type		: 'POST',
+			success		: function(html){
+				table_results.append(html);
+				var code = $('#td_code').text();
+				var name = $('#td_name').text();
+				var brand = $('#td_brand').text();
+				var price = $('#td_price').text();
+				var quantity = $('#td_quantity').text();
+
+				sessionStorage.setItem('code',code);
+				sessionStorage.setItem('name',name);
+				sessionStorage.setItem('brand',brand);
+				sessionStorage.setItem('price',price);
+				sessionStorage.setItem('quantity',quantity);
+			},
+			error 		: function(){
+				alert('Producto no encontrado');
+			}	
+		});
+	}
+}
+
+function update_products(){
+
+	data = {
+		'function' 	: $('#function').val(),
+		'code' 		: $('#code').val(),
+		'name' 		: $('#name').val(),
+		'brand' 	: $('#brand').val(),
+		'price' 	: $('#price').val(),
+		'quantity' 	: $('#quantity').val(),
+	}
+
+	$.ajax({
+		url			: 'http://cied/pages/utilities/inventory/actions.php',
+		cache		: false,
+		data		: data,
+		type		: 'POST',
+		success		: function(result){
+			alert('Producto actualizado');
+		},
+		error 		: function(){
+			alert('Producto no actualizado');
+		}	
+	});
 }
 
 console.log('main.js loaded');
