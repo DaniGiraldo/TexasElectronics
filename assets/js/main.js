@@ -94,6 +94,14 @@ function menu_options(){
 	$('#table').on('click', function(){
 		scripts('table');
 	});
+
+	$('#report').on('click', function(){
+		scripts('report');
+	});
+
+	$('#backup').on('click', function(){
+		scripts('backup');
+	});
 }
 
 function resistor_events(){
@@ -146,14 +154,13 @@ function inventory_events(){
 	$('#update').on('click', function(){
 		$('#insert_form').addClass('dn');
 		$('#search_form').addClass('dn');
-		// $('#update_form').removeClass('dn');
-		$('.container').load('pages/utilities/inventory/views/update_inventory.html');
+		$('#update_form').removeClass('dn');
 
-		var code = sessionStorage.getItem('code');
-		var name = sessionStorage.getItem('name')
-		var brand = sessionStorage.getItem('brand')
-		var price = sessionStorage.getItem('price')
-		var quantity = sessionStorage.getItem('quantity')
+		var code = $('#update_form').attr('code');
+		var name = $('#update_form').attr('namep')
+		var brand = $('#update_form').attr('brand')
+		var price = $('#update_form').attr('price')
+		var quantity = $('#update_form').attr('quantity')
 		
 		$('#u_code').attr('value',code);
 		$('#u_name').attr('value',name);
@@ -163,8 +170,11 @@ function inventory_events(){
 	});
 
 	$('#delete').on('click', function(){
+
 		var table_results = $('#table_results'); 
+
 		$answer = confirm('Seguro desea eliminar?');
+
 		if($answer == true){
 			data = {
 				'function' 	: 'delete',
@@ -176,8 +186,12 @@ function inventory_events(){
 				cache		: false,
 				data		: data,
 				type		: 'POST',
-				success		: function(html){
-					alert('Producto eliminado');
+				success		: function(result){
+					if(result == 'success'){
+						alert('Producto eliminado');
+					}else if(result == 'error'){
+						alert('Producto no eliminado');
+					}
 					table_results.hide();
 				},
 				error 		: function(){
@@ -224,10 +238,15 @@ function insert_products(){
 		data		: data,
 		type		: 'POST',
 		success		: function(result){
-			alert('Producto ingresado');
+			
+			if(result == 'success'){
+				alert('Producto ingresado');
+			}else if(result == 'error'){
+				alert('Producto no ingresado, es posible que intente ingresar un código ya existente.');
+			}
 		},
 		error 		: function(){
-			alert('Producto no ingresado');
+			alert('Producto no ingresado, puede ser que intenta ingresar un código ya existente.');
 		}	
 	});
 }
@@ -239,7 +258,7 @@ function search_products(){
 		alert('Es necesario enviar un código.')
 	}else{
 		data = {
-			'function' 	: $('#function').val(),
+			'function' 	: $('#function_s').val(),
 			'code' 		: $('#code').val()
 		}
 
@@ -250,17 +269,18 @@ function search_products(){
 			type		: 'POST',
 			success		: function(html){
 				table_results.append(html);
+
 				var code = $('#td_code').text();
 				var name = $('#td_name').text();
 				var brand = $('#td_brand').text();
 				var price = $('#td_price').text();
 				var quantity = $('#td_quantity').text();
 
-				sessionStorage.setItem('code',code);
-				sessionStorage.setItem('name',name);
-				sessionStorage.setItem('brand',brand);
-				sessionStorage.setItem('price',price);
-				sessionStorage.setItem('quantity',quantity);
+				$('#update_form').attr('code', code);
+				$('#update_form').attr('namep',name);
+				$('#update_form').attr('brand',brand);
+				$('#update_form').attr('price',price);
+				$('#update_form').attr('quantity',quantity);
 			},
 			error 		: function(){
 				alert('Producto no encontrado');
@@ -270,14 +290,14 @@ function search_products(){
 }
 
 function update_products(){
-
+	
 	data = {
-		'function' 	: $('#function').val(),
-		'code' 		: $('#code').val(),
-		'name' 		: $('#name').val(),
-		'brand' 	: $('#brand').val(),
-		'price' 	: $('#price').val(),
-		'quantity' 	: $('#quantity').val(),
+		'function' 	: $('#function_u').val(),
+		'code' 		: $('#u_code').val(),
+		'name' 		: $('#u_name').val(),
+		'brand' 	: $('#u_brand').val(),
+		'price' 	: $('#u_price').val(),
+		'quantity' 	: $('#u_quantity').val(),
 	}
 
 	$.ajax({
@@ -286,7 +306,11 @@ function update_products(){
 		data		: data,
 		type		: 'POST',
 		success		: function(result){
-			alert('Producto actualizado');
+			if(result == 'success'){
+				alert('Producto actualizado');
+			}else if(result == 'error'){
+				alert('Producto no actualizado');
+			}
 		},
 		error 		: function(){
 			alert('Producto no actualizado');

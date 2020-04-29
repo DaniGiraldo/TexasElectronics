@@ -10,7 +10,7 @@
 <div class="d-flex justify-content-center bd-highlight">
     <div id="search_form" class="p-2 bd-highlight">
         <form class="div_form" id="search_form" method="post">
-            <input type="hidden" id="function" name="function" value="search">
+            <input type="hidden" id="function_s" name="function" value="search">
             <h5>Buscar producto</h5>
             <div class="form-group row">
                 <label class="col-form-label col-form-label-sm">Código</label>
@@ -18,10 +18,9 @@
                     <input type="text" id="code" name="code" class="form-control">
                 </div>
             </div>
-            <br>
             <div class="form-group row">
                 <div class="button-form">
-                    <button type="button" id="calculate" class="btn btn-dark" onclick="search_products();">Buscar</button>
+                    <button type="button" id="search" class="btn btn-dark" onclick="search_products();">Buscar</button>
                 </div>
             </div>
             <div id="table_results" class="form-group row">
@@ -34,8 +33,8 @@
 <div class="d-flex justify-content-center bd-highlight">
     <div id="update_form" class="p-2 bd-highlight dn">
         <div class="div_form">
-            <form class="div_form" id="update_form" method="post">
-                <input type="hidden" id="function" name="function" value="update">
+            <form class="div_form" id="update_form" method="post" action="assets\js\main.js">
+                <input type="hidden" id="function_u" name="function" value="update">
                 <h5>Actualizar producto</h5>
                 <div class="form-group row">
                     <label class="col-form-label col-form-label-sm">Código</label>
@@ -69,7 +68,7 @@
                 </div>
                 <br>
                 <div class="button-form">
-                    <button type="button" id="calculate" class="btn btn-dark" onclick="update_products();">Actualizar</button>
+                    <button type="button" id="update" class="btn btn-dark" onclick="update_products();">Actualizar</button>
                 </div>
             </form>
         </div>
